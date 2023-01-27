@@ -1,0 +1,10 @@
+1.To know about LCD and PIC Integration
+
+https://microcontrollerslab.com/lcd-interfacing-pic16f877a-microcontroller/
+
+https://circuitdigest.com/microcontroller-projects/16x2-lcd-interfacing-with-pic-microcontroller
+
+2.PIC Introduction
+
+https://www.youtube.com/watch?v=mUhzqDD6dg4&t=180s
+
