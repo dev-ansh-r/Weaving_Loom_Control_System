@@ -9841,13 +9841,6 @@ void LcdDisplayShiftCursorRight( void );
 void LcdMenuIncrementChar( void );
 # 3 "main.c" 2
 
-# 1 "./eeprom.h" 1
-# 34 "./eeprom.h"
-unsigned char ReadEEPROM(unsigned short address);
-unsigned short ReadEEPROM16b(unsigned short Address);
-void WriteEEPROM(unsigned short address, unsigned char datas);
-void WriteEeprom16B(unsigned short Address, unsigned short datas);
-# 4 "main.c" 2
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 1 3
@@ -10369,23 +10362,20 @@ double yn(int, double);
 
 
 char arr[4][16] = {"WELCOME","1.LOOM SETTINGS","2.DHOTI SETTINGS","3.RESET SETTINGS"};
+int pos;
 int loom_s, loom_w, loom_p, option;
 int dhoti_steps;
 int dhoti_values[60][4];
 
 unsigned char value1 = 100;
 unsigned char address = 0xF0;
-# 31 "main.c"
+# 32 "main.c"
 int main_menu();
 int increment(int fixed, int count, unsigned char line ,unsigned char pos);
-int increment_two(int fixed, int count, unsigned char line ,unsigned char pos);
-int increment_one(int fixed, int count, unsigned char line ,unsigned char pos);
-void enterdhoti_values(int steps);
 
 void Loom_settings();
 void Dothi_settings();
 void Reset_settings();
-
 
 void main(){
     LcdInit();
@@ -10393,7 +10383,7 @@ void main(){
     LcdClearDisplay();
     switch(opt+1){
         case 1:
-                LcdDisplayString(1,0,"INVALID OPTION");
+            LcdDisplayString(1,0,"INVALID OPTION");
             break;
         case 2:
             Loom_settings();
@@ -10412,11 +10402,13 @@ void main(){
 
 int main_menu(){
     while(1){
-        LcdDisplayString(1,0,arr[option]);
+        LcdDisplayString(1,6,"MENU");
+        LcdDisplayString(2,0,arr[option]);
         while(PORTBbits.RB5 == 0 ){
             if(PORTBbits.RB0 == 1)
                 return option;
         }
+        _delay((unsigned long)((10)*(20000000/4000.0)));
         if(option < 3)
             ++option;
         else
@@ -10426,48 +10418,10 @@ int main_menu(){
 }
 
 int increment(int fixed, int count, unsigned char line ,unsigned char pos){
-   int dynamic ,displayy , i = 0;
+   int dynamic = 0, i = 0;
    while(1){
-        displayy = fixed + dynamic;
-        LcdDisplayNumber(line,pos,displayy);
-        while(PORTBbits.RB6 == 0){
-            if(PORTBbits.RB5 == 1){
-                return fixed + dynamic;
-            }
-        }
-        _delay((unsigned long)((10)*(20000000/4000.0)));
-        if(i<9)
-            i++;
-        else
-            i=0;
-        dynamic = (i * powf(10,count));
-    }
-}
-
-int increment_two(int fixed, int count, unsigned char line ,unsigned char pos){
-   int dynamic ,displayy , i = 0;
-   while(1){
-        displayy = fixed + dynamic;
-        LcdDisplaytwo(line,pos,displayy);
-        while(PORTBbits.RB6 == 0){
-            if(PORTBbits.RB5 == 1){
-                return fixed + dynamic;
-            }
-        }
-        _delay((unsigned long)((10)*(20000000/4000.0)));
-        if(i<9)
-            i++;
-        else
-            i=0;
-        dynamic = (i * powf(10,count));
-    }
-}
-
-int increment_one(int fixed, int count, unsigned char line ,unsigned char pos){
-   int dynamic ,displayy , i = 0;
-   while(1){
-        displayy = fixed + dynamic;
-        LcdDisplaytwo(line, pos, displayy);
+        LcdDisplayChar(line,pos,i);
+        LcdDisplayOnCursorOn(line, pos);
         while(PORTBbits.RB6 == 0){
             if(PORTBbits.RB5 == 1){
                 return fixed + dynamic;
@@ -10491,60 +10445,84 @@ void Loom_settings(){
     LcdDisplayNumber(1,10, loom_s);
     LcdDisplayString(2,0,"P:");
     LcdDisplayNumber(2,2,loom_p);
+    pos = 2;
     for(int i=count;i>=0;--i){
-        loom_w = increment(loom_w, i, 1,2);
+        loom_w = increment(loom_w, i, 1,pos);
+        _delay((unsigned long)((20)*(20000000/4000.0)));
+        ++pos;
     }
+    pos = 10;
     for(int i=count;i>=0;--i){
-        loom_s = increment(loom_s, i, 1,10);
+        loom_s = increment(loom_s, i, 1,pos);
+        _delay((unsigned long)((20)*(20000000/4000.0)));
+        ++pos;
     }
+    pos = 2;
     for(int i=count;i>=0;--i){
-        loom_p = increment(loom_p, i, 2,2);
+        loom_p = increment(loom_p, i, 2,pos);
+        _delay((unsigned long)((20)*(20000000/4000.0)));
+        ++pos;
     }
     while(PORTCbits.RC0 == 0){
     }
-    main_menu();
+    LcdClearDisplay();
+    LcdDisplayNumber(1,0,loom_s);
+    LcdDisplayNumber(1,8,loom_w);
+    LcdDisplayNumber(2,0,loom_p);
 }
 
-
-
-
-
 void Dothi_settings(){
-    LcdDisplayString(1,0,"NO OF STEPS:");
+    LcdDisplayString(1,0,"NO OF STEPS:00");
+    pos = 12;
     for(int k=1;k>=0;--k){
-        dhoti_steps = increment_two(dhoti_steps, k, 1, 12);
-        _delay((unsigned long)((10)*(20000000/4000.0)));
+        dhoti_steps = increment(dhoti_steps, k, 1, pos);
+        _delay((unsigned long)((20)*(20000000/4000.0)));
+        ++pos;
     }
-    LcdClearDisplay();
-    if(dhoti_steps<=60)
-        enterdhoti_values(dhoti_steps);
+    if(dhoti_steps<=60){
+        for(int i=1;i<=dhoti_steps;){
+            LcdClearDisplay();
+            LcdDisplaytwo(1,0,i);
+            LcdDisplayString(1,2,":");
+            LcdDisplayNumber(1,3,0);
+            LcdDisplayString(1,7,"F:0N:0P:0");
+            ++i;
+            LcdDisplaytwo(2,0,i);
+            LcdDisplayString(2,2,":");
+            LcdDisplayNumber(2,3,0);
+            LcdDisplayString(2,7,"F:0N:0P:0");
+            for(int k=3, pos = 3;k>=0;--k){
+                dhoti_values[i-1][0] = increment(dhoti_values[i-1][0],k,1,pos);
+                _delay((unsigned long)((20)*(20000000/4000.0)));
+                ++pos;
+            }
+            dhoti_values[i-1][1] = increment(dhoti_values[i][1],0,1,9);
+            _delay((unsigned long)((20)*(20000000/4000.0)));
+            dhoti_values[i-1][2] = increment(dhoti_values[i][2],0,1,12);
+            _delay((unsigned long)((20)*(20000000/4000.0)));
+            dhoti_values[i-1][3] = increment(dhoti_values[i][3],0,1,15);
+            _delay((unsigned long)((20)*(20000000/4000.0)));
+            for(int k = 3,pos = 3; k >= 0;--k){
+                dhoti_values[i-1][0] = increment(dhoti_values[i][0],k,2,pos);
+                _delay((unsigned long)((20)*(20000000/4000.0)));
+                ++pos;
+            }
+            dhoti_values[i][1] = increment(dhoti_values[i][1],0,2,9);
+            _delay((unsigned long)((20)*(20000000/4000.0)));
+            dhoti_values[i][2] = increment(dhoti_values[i][2],0,2,12);
+            _delay((unsigned long)((20)*(20000000/4000.0)));
+            dhoti_values[i][3] = increment(dhoti_values[i][3],0,2,15);
+            _delay((unsigned long)((20)*(20000000/4000.0)));
+    }
+    }
     else
+        LcdClearDisplay();
         LcdDisplayString(1,0,"INVALID OPTION");
 }
 
 
 void Reset_settings(){
-
-
-
-
-}
-
-void enterdhoti_values(int steps){
-    for(int i=1;i<=steps;){
-        LcdDisplaytwo(1,0,i);
-        LcdDisplayString(1,2,":");
-        LcdDisplayNumber(1,3,0);
-        LcdDisplayString(1,7,"F:0N:0P:0");
-        ++i;
-        LcdDisplaytwo(2,0,i);
-        LcdDisplayString(2,2,":");
-        LcdDisplayNumber(2,3,0);
-        LcdDisplayString(2,7,"F:0N:0P:0");
-        for(int k=3;k>=0;--k)
-            dhoti_values[i][0] = increment(dhoti_values[i][0],k,1,3);
-        LcdDisplayString(1,7,"F:0N:0P:0");
-        for(int k=3;k>=0;--k)
-            dhoti_values[i][0] = increment(dhoti_values[i][0],k,2,3);
+    LcdClearDisplay();
+    while(1){
     }
 }

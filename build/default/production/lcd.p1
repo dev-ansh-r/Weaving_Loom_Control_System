@@ -1248,8 +1248,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 869 ]
 [e :U 868 ]
 "103
-[; ;lcd.c: 103:     SendLcdData(Data);
-[e ( _SendLcdData (1 -> _Data `uc ]
+[; ;lcd.c: 103:     SendLcdData(Data+48);
+[e ( _SendLcdData (1 -> + -> _Data `i -> 48 `i `uc ]
 "104
 [; ;lcd.c: 104: }
 [e :UE 866 ]
@@ -1497,12 +1497,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "168
 [; ;lcd.c: 168: {
 [f ]
-"169
-[; ;lcd.c: 169:     DataArray1 = (unsigned char) ((((Data)))+48);
-[e = _DataArray1 -> -> + -> _Data `ui -> -> 48 `i `ui `uc `uc ]
 "170
-[; ;lcd.c: 170:     if( ValidateNumber(DataArray1))
-[e $ ! != -> ( _ValidateNumber (1 -> _DataArray1 `*uc `i -> 0 `i 885  ]
+[; ;lcd.c: 170:     if( ValidateNumber(Data))
+[e $ ! != -> ( _ValidateNumber (1 -> _Data `*uc `i -> 0 `i 885  ]
 "171
 [; ;lcd.c: 171:     {
 {
@@ -1690,7 +1687,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 898 ]
 [e :U 897 ]
 "226
-[; ;lcd.c: 226: }
+[; ;lcd.c: 226:     SendLcdCommand(0X0F);
+[e ( _SendLcdCommand (1 -> -> 15 `i `uc ]
+"227
+[; ;lcd.c: 227: }
 [e :UE 895 ]
 }
 [a 2C 72 101 108 108 111 0 ]

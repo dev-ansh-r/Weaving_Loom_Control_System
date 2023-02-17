@@ -9940,7 +9940,7 @@ void LcdDisplayChar(unsigned char RowNum, unsigned char Pos, char Data)
         SendLcdCommand(0XC0 | Pos);
     }
 
-    SendLcdData(Data);
+    SendLcdData(Data+48);
 }
 
 unsigned char ValidateNumber( char *Data )
@@ -10006,8 +10006,8 @@ unsigned char LcdDisplaytwo(unsigned char RowNum, unsigned char Pos, unsigned sh
 
 unsigned char LcdDisplayone(unsigned char RowNum, unsigned char Pos, unsigned short Data)
 {
-    DataArray1 = (unsigned char) ((((Data)))+48);
-    if( ValidateNumber(DataArray1))
+
+    if( ValidateNumber(Data))
     {
         LcdDisplayString(RowNum,Pos,DataArray1);
         return 1;
@@ -10063,4 +10063,5 @@ void LcdSetPos( unsigned char RowNum, unsigned char Pos )
     {
         SendLcdCommand(0XC0 | Pos);
     }
+    SendLcdCommand(0X0F);
 }

@@ -9816,18 +9816,21 @@ void MenuUpdateIncDecScreen( void );
 void MenuIncrementChar(void);
 # 9 "eeprom.c" 2
 
+# 1 "./eeprom.h" 1
+# 34 "./eeprom.h"
+unsigned char ReadEEPROM(unsigned short address);
+unsigned short ReadEEPROM16b(unsigned short Address);
+void WriteEEPROM(unsigned short address, unsigned char datas);
+void WriteEeprom16B(unsigned short Address, unsigned short datas);
+# 10 "eeprom.c" 2
 
-unsigned char ReadEEPROM(unsigned short Address)
+
+unsigned char readEEPROM(unsigned char address)
 {
-   if ((EECON1 & 0x80) == 0x80)
-   {
-      EECON1 = 0;
-   }
-
-   EEADR = Address & 0xff;
-   EEADRH = ((Address & 0x300) >> 8);
-   EECON1 = 0x01;
-   return EEDATA;
+  EEADR = address;
+  EECON1.EEPGD = 0;
+  EECON1.RD = 1;
+  return EEDATA;
 }
 
 unsigned short ReadEEPROM16b(unsigned short Address)
@@ -9838,31 +9841,26 @@ unsigned short ReadEEPROM16b(unsigned short Address)
    EepromData |= ReadEEPROM(Address);
    return EepromData;
 }
-
-void WriteEEPROM(unsigned short Address, unsigned char datas)
+# 55 "eeprom.c"
+void writeEEPROM(unsigned char address, unsigned char datas)
 {
-   unsigned char INTCON_SAVE;
-   INTCON_SAVE = INTCON;
-   INTCON = 0;
-   do
-   {
-      if ((EECON1 & 0x80) == 0x80)
-      {
-         EECON1 = 0;
-      }
-      EEADR = Address & 0xff;
-      EEADRH = ((Address & 0x300) >> 8);
-      EEDATA = datas;
-      EECON1 = 0x04;
-      EECON2 = 0x55;
-      EECON2 = 0xAA;
-      EECON1 |= 0x02;
-
-      while ((PIR2 & 0x10) != 0x10);
-      PIR2 &= ~(1 << 4);
-   }
-   while ((EECON1 & 0x80) == 0x80);
-   INTCON = INTCON_SAVE;
+    unsigned char INTCON_SAVE;
+  EEADR = address;
+  EEDATA = datas;
+  EECON1.EEPGD = 0;
+  EECON1.WREN = 1;
+  INTCON_SAVE=INTCON;
+  INTCON=0;
+  EECON2=0x55;
+  EECON2=0xAA;
+  EECON1.WR = 1;
+  INTCON = INTCON_SAVE;
+  EECON1.WREN = 0;
+  while(PIR2.EEIF == 0)
+  {
+    asm nop;
+  }
+  PIR2.EEIF = 0;
 }
 
 void WriteEeprom16B(unsigned short Address, unsigned short datas)

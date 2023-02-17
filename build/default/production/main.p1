@@ -15,8 +15,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "30 ./lcd.h
 [; ;./lcd.h: 30: void LcdInit( void );
 [v _LcdInit `(v ~T0 @X0 0 ef ]
-"31 main.c
-[; ;main.c: 31: int main_menu();
+"32 main.c
+[; ;main.c: 32: int main_menu();
 [v _main_menu `(i ~T0 @X0 0 e? ]
 "39 ./lcd.h
 [; ;./lcd.h: 39: void LcdClearDisplay (void);
@@ -24,14 +24,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "33
 [; ;./lcd.h: 33: void LcdDisplayString(unsigned char RowNum, unsigned char Pos, char * Data);
 [v _LcdDisplayString `(v ~T0 @X0 0 ef3`uc`uc`*uc ]
-"37 main.c
-[; ;main.c: 37: void Loom_settings();
+"35 main.c
+[; ;main.c: 35: void Loom_settings();
 [v _Loom_settings `(v ~T0 @X0 0 e? ]
-"38
-[; ;main.c: 38: void Dothi_settings();
+"36
+[; ;main.c: 36: void Dothi_settings();
 [v _Dothi_settings `(v ~T0 @X0 0 e? ]
-"39
-[; ;main.c: 39: void Reset_settings();
+"37
+[; ;main.c: 37: void Reset_settings();
 [v _Reset_settings `(v ~T0 @X0 0 e? ]
 "6571 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k22.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k22.h: 6571:     struct {
@@ -72,20 +72,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6635
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k22.h: 6635: extern volatile PORTBbits_t PORTBbits __attribute__((address(0xF81)));
 [v _PORTBbits `VS345 ~T0 @X0 0 e@3969 ]
-"41 ./lcd.h
-[; ;./lcd.h: 41: unsigned char LcdDisplayNumber(unsigned char RowNum, unsigned char Pos, unsigned short Data);
-[v _LcdDisplayNumber `(uc ~T0 @X0 0 ef3`uc`uc`us ]
 [v F192 `(v ~T0 @X0 1 tf1`ul ]
 "12 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\builtins.h
 [v __delay `JF192 ~T0 @X0 0 e ]
 [p i __delay ]
-[v F6761 `(f ~T0 @X0 1 tf2`f`f ]
+"35 ./lcd.h
+[; ;./lcd.h: 35: void LcdDisplayChar(unsigned char RowNum, unsigned char Pos, char Data);
+[v _LcdDisplayChar `(v ~T0 @X0 0 ef3`uc`uc`uc ]
+"47
+[; ;./lcd.h: 47: void LcdDisplayOnCursorOn( unsigned char RowNum, unsigned char Pos );
+[v _LcdDisplayOnCursorOn `(v ~T0 @X0 0 ef2`uc`uc ]
+[v F6751 `(f ~T0 @X0 1 tf2`f`f ]
 "324 C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\math.h
 [; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\math.h: 324: __attribute__((nonreentrant)) float powf(float, float);
-[v _powf `JF6761 ~T0 @X0 0 e ]
-"43 ./lcd.h
-[; ;./lcd.h: 43: unsigned char LcdDisplaytwo(unsigned char RowNum, unsigned char Pos, unsigned short Data);
-[v _LcdDisplaytwo `(uc ~T0 @X0 0 ef3`uc`uc`us ]
+[v _powf `JF6751 ~T0 @X0 0 e ]
+"41 ./lcd.h
+[; ;./lcd.h: 41: unsigned char LcdDisplayNumber(unsigned char RowNum, unsigned char Pos, unsigned short Data);
+[v _LcdDisplayNumber `(uc ~T0 @X0 0 ef3`uc`uc`us ]
 "6841 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k22.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k22.h: 6841:     struct {
 [s S355 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -121,9 +124,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6907
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k22.h: 6907: extern volatile PORTCbits_t PORTCbits __attribute__((address(0xF82)));
 [v _PORTCbits `VS354 ~T0 @X0 0 e@3970 ]
-"35 main.c
-[; ;main.c: 35: void enterdhoti_values(int steps);
-[v _enterdhoti_values `(v ~T0 @X0 0 ef1`i ]
+"43 ./lcd.h
+[; ;./lcd.h: 43: unsigned char LcdDisplaytwo(unsigned char RowNum, unsigned char Pos, unsigned short Data);
+[v _LcdDisplaytwo `(uc ~T0 @X0 0 ef3`uc`uc`us ]
 "54 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k22.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k22.h: 54: __asm("ANSELA equ 0F38h");
 [; <" ANSELA equ 0F38h ;# ">
@@ -1058,10 +1061,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "176
 [; ;./config.h: 176: unsigned char __PneumaticIndex;
 [v ___PneumaticIndex `uc ~T0 @X0 1 e ]
-[v F6876 `uc ~T0 @X0 -> 16 `i t ]
+[v F6866 `uc ~T0 @X0 -> 16 `i t ]
 "9 main.c
 [; ;main.c: 9: char arr[4][16] = {"WELCOME","1.LOOM SETTINGS","2.DHOTI SETTINGS","3.RESET SETTINGS"};
-[v _arr `F6876 ~T0 @X0 -> 4 `i e ]
+[v _arr `F6866 ~T0 @X0 -> 4 `i e ]
 [i _arr
 :U ..
 :U ..
@@ -1131,98 +1134,101 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 "10
-[; ;main.c: 10: int loom_s, loom_w, loom_p, option;
+[; ;main.c: 10: int pos;
+[v _pos `i ~T0 @X0 1 e ]
+"11
+[; ;main.c: 11: int loom_s, loom_w, loom_p, option;
 [v _loom_s `i ~T0 @X0 1 e ]
 [v _loom_w `i ~T0 @X0 1 e ]
 [v _loom_p `i ~T0 @X0 1 e ]
 [v _option `i ~T0 @X0 1 e ]
-"11
-[; ;main.c: 11: int dhoti_steps;
-[v _dhoti_steps `i ~T0 @X0 1 e ]
-[v F6883 `i ~T0 @X0 -> 4 `i t ]
 "12
-[; ;main.c: 12: int dhoti_values[60][4];
-[v _dhoti_values `F6883 ~T0 @X0 -> 60 `i e ]
-"14
-[; ;main.c: 14: unsigned char value1 = 100;
+[; ;main.c: 12: int dhoti_steps;
+[v _dhoti_steps `i ~T0 @X0 1 e ]
+[v F6874 `i ~T0 @X0 -> 4 `i t ]
+"13
+[; ;main.c: 13: int dhoti_values[60][4];
+[v _dhoti_values `F6874 ~T0 @X0 -> 60 `i e ]
+"15
+[; ;main.c: 15: unsigned char value1 = 100;
 [v _value1 `uc ~T0 @X0 1 e ]
 [i _value1
 -> -> 100 `i `uc
 ]
-"15
-[; ;main.c: 15: unsigned char address = 0xF0;
+"16
+[; ;main.c: 16: unsigned char address = 0xF0;
 [v _address `uc ~T0 @X0 1 e ]
 [i _address
 -> -> 240 `i `uc
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"42
-[; ;main.c: 42: void main(){
+"39
+[; ;main.c: 39: void main(){
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"43
-[; ;main.c: 43:     LcdInit();
+"40
+[; ;main.c: 40:     LcdInit();
 [e ( _LcdInit ..  ]
-"44
-[; ;main.c: 44:     int opt = main_menu();
+"41
+[; ;main.c: 41:     int opt = main_menu();
 [v _opt `i ~T0 @X0 1 a ]
 [e = _opt ( _main_menu ..  ]
-"45
-[; ;main.c: 45:     LcdClearDisplay();
+"42
+[; ;main.c: 42:     LcdClearDisplay();
 [e ( _LcdClearDisplay ..  ]
-"46
-[; ;main.c: 46:     switch(opt+1){
+"43
+[; ;main.c: 43:     switch(opt+1){
 [e $U 859  ]
 {
-"47
-[; ;main.c: 47:         case 1:
+"44
+[; ;main.c: 44:         case 1:
 [e :U 860 ]
-"48
-[; ;main.c: 48:                 LcdDisplayString(1,0,"INVALID OPTION");
+"45
+[; ;main.c: 45:             LcdDisplayString(1,0,"INVALID OPTION");
 [e ( _LcdDisplayString (3 , , -> -> 1 `i `uc -> -> 0 `i `uc :s 1C ]
+"46
+[; ;main.c: 46:             break;
+[e $U 858  ]
+"47
+[; ;main.c: 47:         case 2:
+[e :U 861 ]
+"48
+[; ;main.c: 48:             Loom_settings();
+[e ( _Loom_settings ..  ]
 "49
 [; ;main.c: 49:             break;
 [e $U 858  ]
 "50
-[; ;main.c: 50:         case 2:
-[e :U 861 ]
+[; ;main.c: 50:         case 3:
+[e :U 862 ]
 "51
-[; ;main.c: 51:             Loom_settings();
-[e ( _Loom_settings ..  ]
+[; ;main.c: 51:             Dothi_settings();
+[e ( _Dothi_settings ..  ]
 "52
 [; ;main.c: 52:             break;
 [e $U 858  ]
 "53
-[; ;main.c: 53:         case 3:
-[e :U 862 ]
+[; ;main.c: 53:         case 4:
+[e :U 863 ]
 "54
-[; ;main.c: 54:             Dothi_settings();
-[e ( _Dothi_settings ..  ]
+[; ;main.c: 54:             Reset_settings();
+[e ( _Reset_settings ..  ]
 "55
 [; ;main.c: 55:             break;
 [e $U 858  ]
 "56
-[; ;main.c: 56:         case 4:
-[e :U 863 ]
+[; ;main.c: 56:         default:
+[e :U 864 ]
 "57
-[; ;main.c: 57:             Reset_settings();
-[e ( _Reset_settings ..  ]
+[; ;main.c: 57:             LcdDisplayString(1,0,"INVALID OPTION");
+[e ( _LcdDisplayString (3 , , -> -> 1 `i `uc -> -> 0 `i `uc :s 2C ]
 "58
 [; ;main.c: 58:             break;
 [e $U 858  ]
 "59
-[; ;main.c: 59:         default:
-[e :U 864 ]
-"60
-[; ;main.c: 60:             LcdDisplayString(1,0,"INVALID OPTION");
-[e ( _LcdDisplayString (3 , , -> -> 1 `i `uc -> -> 0 `i `uc :s 2C ]
-"61
-[; ;main.c: 61:             break;
-[e $U 858  ]
-"62
-[; ;main.c: 62:         }
+[; ;main.c: 59:         }
 }
 [e $U 858  ]
 [e :U 859 ]
@@ -1232,73 +1238,79 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 4 `i 863
  864 ]
 [e :U 858 ]
-"63
-[; ;main.c: 63: }
+"60
+[; ;main.c: 60: }
 [e :UE 857 ]
 }
-"65
-[; ;main.c: 65: int main_menu(){
+"62
+[; ;main.c: 62: int main_menu(){
 [v _main_menu `(i ~T0 @X0 1 ef ]
 {
 [e :U _main_menu ]
 [f ]
-"66
-[; ;main.c: 66:     while(1){
+"63
+[; ;main.c: 63:     while(1){
 [e :U 867 ]
 {
-"67
-[; ;main.c: 67:         LcdDisplayString(1,0,arr[option]);
-[e ( _LcdDisplayString (3 , , -> -> 1 `i `uc -> -> 0 `i `uc &U *U + &U _arr * -> -> _option `ui `ux -> * -> # *U &U *U &U _arr `ui -> -> 16 `i `ui `ux ]
-"68
-[; ;main.c: 68:         while(PORTBbits.RB5 == 0 ){
+"64
+[; ;main.c: 64:         LcdDisplayString(1,6,"MENU");
+[e ( _LcdDisplayString (3 , , -> -> 1 `i `uc -> -> 6 `i `uc :s 3C ]
+"65
+[; ;main.c: 65:         LcdDisplayString(2,0,arr[option]);
+[e ( _LcdDisplayString (3 , , -> -> 2 `i `uc -> -> 0 `i `uc &U *U + &U _arr * -> -> _option `ui `ux -> * -> # *U &U *U &U _arr `ui -> -> 16 `i `ui `ux ]
+"66
+[; ;main.c: 66:         while(PORTBbits.RB5 == 0 ){
 [e $U 869  ]
 [e :U 870 ]
 {
-"69
-[; ;main.c: 69:             if(PORTBbits.RB0 == 1)
+"67
+[; ;main.c: 67:             if(PORTBbits.RB0 == 1)
 [e $ ! == -> . . _PORTBbits 0 0 `i -> 1 `i 872  ]
-"70
-[; ;main.c: 70:                 return option;
+"68
+[; ;main.c: 68:                 return option;
 [e ) _option ]
 [e $UE 865  ]
 [e :U 872 ]
-"71
-[; ;main.c: 71:         }
+"69
+[; ;main.c: 69:         }
 }
 [e :U 869 ]
-"68
-[; ;main.c: 68:         while(PORTBbits.RB5 == 0 ){
+"66
+[; ;main.c: 66:         while(PORTBbits.RB5 == 0 ){
 [e $ == -> . . _PORTBbits 0 5 `i -> 0 `i 870  ]
 [e :U 871 ]
-"72
-[; ;main.c: 72:         if(option < 3)
+"70
+[; ;main.c: 70:         _delay((unsigned long)((10)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"71
+[; ;main.c: 71:         if(option < 3)
 [e $ ! < _option -> 3 `i 873  ]
-"73
-[; ;main.c: 73:             ++option;
+"72
+[; ;main.c: 72:             ++option;
 [e =+ _option -> 1 `i ]
 [e $U 874  ]
-"74
-[; ;main.c: 74:         else
+"73
+[; ;main.c: 73:         else
 [e :U 873 ]
-"75
-[; ;main.c: 75:             option = 0;
+"74
+[; ;main.c: 74:             option = 0;
 [e = _option -> 0 `i ]
 [e :U 874 ]
-"76
-[; ;main.c: 76:         LcdClearDisplay();
+"75
+[; ;main.c: 75:         LcdClearDisplay();
 [e ( _LcdClearDisplay ..  ]
-"77
-[; ;main.c: 77:     }
+"76
+[; ;main.c: 76:     }
 }
 [e :U 866 ]
 [e $U 867  ]
 [e :U 868 ]
-"78
-[; ;main.c: 78: }
+"77
+[; ;main.c: 77: }
 [e :UE 865 ]
 }
-"80
-[; ;main.c: 80: int increment(int fixed, int count, unsigned char line ,unsigned char pos){
+"79
+[; ;main.c: 79: int increment(int fixed, int count, unsigned char line ,unsigned char pos){
 [v _increment `(i ~T0 @X0 1 ef4`i`i`uc`uc ]
 {
 [e :U _increment ]
@@ -1307,504 +1319,447 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _line `uc ~T0 @X0 1 r3 ]
 [v _pos `uc ~T0 @X0 1 r4 ]
 [f ]
-"81
-[; ;main.c: 81:    int dynamic ,displayy , i = 0;
+"80
+[; ;main.c: 80:    int dynamic = 0, i = 0;
 [v _dynamic `i ~T0 @X0 1 a ]
-[v _displayy `i ~T0 @X0 1 a ]
+[e = _dynamic -> 0 `i ]
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-"82
-[; ;main.c: 82:    while(1){
+"81
+[; ;main.c: 81:    while(1){
 [e :U 877 ]
 {
+"82
+[; ;main.c: 82:         LcdDisplayChar(line,pos,i);
+[e ( _LcdDisplayChar (3 , , _line _pos -> _i `uc ]
 "83
-[; ;main.c: 83:         displayy = fixed + dynamic;
-[e = _displayy + _fixed _dynamic ]
+[; ;main.c: 83:         LcdDisplayOnCursorOn(line, pos);
+[e ( _LcdDisplayOnCursorOn (2 , _line _pos ]
 "84
-[; ;main.c: 84:         LcdDisplayNumber(line,pos,displayy);
-[e ( _LcdDisplayNumber (3 , , _line _pos -> _displayy `us ]
-"85
-[; ;main.c: 85:         while(PORTBbits.RB6 == 0){
+[; ;main.c: 84:         while(PORTBbits.RB6 == 0){
 [e $U 879  ]
 [e :U 880 ]
 {
-"86
-[; ;main.c: 86:             if(PORTBbits.RB5 == 1){
+"85
+[; ;main.c: 85:             if(PORTBbits.RB5 == 1){
 [e $ ! == -> . . _PORTBbits 0 5 `i -> 1 `i 882  ]
 {
-"87
-[; ;main.c: 87:                 return fixed + dynamic;
+"86
+[; ;main.c: 86:                 return fixed + dynamic;
 [e ) + _fixed _dynamic ]
 [e $UE 875  ]
-"88
-[; ;main.c: 88:             }
+"87
+[; ;main.c: 87:             }
 }
 [e :U 882 ]
-"89
-[; ;main.c: 89:         }
+"88
+[; ;main.c: 88:         }
 }
 [e :U 879 ]
-"85
-[; ;main.c: 85:         while(PORTBbits.RB6 == 0){
+"84
+[; ;main.c: 84:         while(PORTBbits.RB6 == 0){
 [e $ == -> . . _PORTBbits 0 6 `i -> 0 `i 880  ]
 [e :U 881 ]
-"90
-[; ;main.c: 90:         _delay((unsigned long)((10)*(20000000/4000.0)));
+"89
+[; ;main.c: 89:         _delay((unsigned long)((10)*(20000000/4000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"91
-[; ;main.c: 91:         if(i<9)
+"90
+[; ;main.c: 90:         if(i<9)
 [e $ ! < _i -> 9 `i 883  ]
-"92
-[; ;main.c: 92:             i++;
+"91
+[; ;main.c: 91:             i++;
 [e ++ _i -> 1 `i ]
 [e $U 884  ]
-"93
-[; ;main.c: 93:         else
+"92
+[; ;main.c: 92:         else
 [e :U 883 ]
-"94
-[; ;main.c: 94:             i=0;
+"93
+[; ;main.c: 93:             i=0;
 [e = _i -> 0 `i ]
 [e :U 884 ]
-"95
-[; ;main.c: 95:         dynamic = (i * powf(10,count));
+"94
+[; ;main.c: 94:         dynamic = (i * powf(10,count));
 [e = _dynamic -> * -> _i `f ( _powf (2 , -> -> 10 `i `f -> _count `f `i ]
-"96
-[; ;main.c: 96:     }
+"95
+[; ;main.c: 95:     }
 }
 [e :U 876 ]
 [e $U 877  ]
 [e :U 878 ]
-"97
-[; ;main.c: 97: }
+"96
+[; ;main.c: 96: }
 [e :UE 875 ]
 }
-"99
-[; ;main.c: 99: int increment_two(int fixed, int count, unsigned char line ,unsigned char pos){
-[v _increment_two `(i ~T0 @X0 1 ef4`i`i`uc`uc ]
-{
-[e :U _increment_two ]
-[v _fixed `i ~T0 @X0 1 r1 ]
-[v _count `i ~T0 @X0 1 r2 ]
-[v _line `uc ~T0 @X0 1 r3 ]
-[v _pos `uc ~T0 @X0 1 r4 ]
-[f ]
-"100
-[; ;main.c: 100:    int dynamic ,displayy , i = 0;
-[v _dynamic `i ~T0 @X0 1 a ]
-[v _displayy `i ~T0 @X0 1 a ]
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-"101
-[; ;main.c: 101:    while(1){
-[e :U 887 ]
-{
-"102
-[; ;main.c: 102:         displayy = fixed + dynamic;
-[e = _displayy + _fixed _dynamic ]
-"103
-[; ;main.c: 103:         LcdDisplaytwo(line,pos,displayy);
-[e ( _LcdDisplaytwo (3 , , _line _pos -> _displayy `us ]
-"104
-[; ;main.c: 104:         while(PORTBbits.RB6 == 0){
-[e $U 889  ]
-[e :U 890 ]
-{
-"105
-[; ;main.c: 105:             if(PORTBbits.RB5 == 1){
-[e $ ! == -> . . _PORTBbits 0 5 `i -> 1 `i 892  ]
-{
-"106
-[; ;main.c: 106:                 return fixed + dynamic;
-[e ) + _fixed _dynamic ]
-[e $UE 885  ]
-"107
-[; ;main.c: 107:             }
-}
-[e :U 892 ]
-"108
-[; ;main.c: 108:         }
-}
-[e :U 889 ]
-"104
-[; ;main.c: 104:         while(PORTBbits.RB6 == 0){
-[e $ == -> . . _PORTBbits 0 6 `i -> 0 `i 890  ]
-[e :U 891 ]
-"109
-[; ;main.c: 109:         _delay((unsigned long)((10)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"110
-[; ;main.c: 110:         if(i<9)
-[e $ ! < _i -> 9 `i 893  ]
-"111
-[; ;main.c: 111:             i++;
-[e ++ _i -> 1 `i ]
-[e $U 894  ]
-"112
-[; ;main.c: 112:         else
-[e :U 893 ]
-"113
-[; ;main.c: 113:             i=0;
-[e = _i -> 0 `i ]
-[e :U 894 ]
-"114
-[; ;main.c: 114:         dynamic = (i * powf(10,count));
-[e = _dynamic -> * -> _i `f ( _powf (2 , -> -> 10 `i `f -> _count `f `i ]
-"115
-[; ;main.c: 115:     }
-}
-[e :U 886 ]
-[e $U 887  ]
-[e :U 888 ]
-"116
-[; ;main.c: 116: }
-[e :UE 885 ]
-}
-"118
-[; ;main.c: 118: int increment_one(int fixed, int count, unsigned char line ,unsigned char pos){
-[v _increment_one `(i ~T0 @X0 1 ef4`i`i`uc`uc ]
-{
-[e :U _increment_one ]
-[v _fixed `i ~T0 @X0 1 r1 ]
-[v _count `i ~T0 @X0 1 r2 ]
-[v _line `uc ~T0 @X0 1 r3 ]
-[v _pos `uc ~T0 @X0 1 r4 ]
-[f ]
-"119
-[; ;main.c: 119:    int dynamic ,displayy , i = 0;
-[v _dynamic `i ~T0 @X0 1 a ]
-[v _displayy `i ~T0 @X0 1 a ]
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-"120
-[; ;main.c: 120:    while(1){
-[e :U 897 ]
-{
-"121
-[; ;main.c: 121:         displayy = fixed + dynamic;
-[e = _displayy + _fixed _dynamic ]
-"122
-[; ;main.c: 122:         LcdDisplaytwo(line, pos, displayy);
-[e ( _LcdDisplaytwo (3 , , _line _pos -> _displayy `us ]
-"123
-[; ;main.c: 123:         while(PORTBbits.RB6 == 0){
-[e $U 899  ]
-[e :U 900 ]
-{
-"124
-[; ;main.c: 124:             if(PORTBbits.RB5 == 1){
-[e $ ! == -> . . _PORTBbits 0 5 `i -> 1 `i 902  ]
-{
-"125
-[; ;main.c: 125:                 return fixed + dynamic;
-[e ) + _fixed _dynamic ]
-[e $UE 895  ]
-"126
-[; ;main.c: 126:             }
-}
-[e :U 902 ]
-"127
-[; ;main.c: 127:         }
-}
-[e :U 899 ]
-"123
-[; ;main.c: 123:         while(PORTBbits.RB6 == 0){
-[e $ == -> . . _PORTBbits 0 6 `i -> 0 `i 900  ]
-[e :U 901 ]
-"128
-[; ;main.c: 128:         _delay((unsigned long)((10)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"129
-[; ;main.c: 129:         if(i<9)
-[e $ ! < _i -> 9 `i 903  ]
-"130
-[; ;main.c: 130:             i++;
-[e ++ _i -> 1 `i ]
-[e $U 904  ]
-"131
-[; ;main.c: 131:         else
-[e :U 903 ]
-"132
-[; ;main.c: 132:             i=0;
-[e = _i -> 0 `i ]
-[e :U 904 ]
-"133
-[; ;main.c: 133:         dynamic = (i * powf(10,count));
-[e = _dynamic -> * -> _i `f ( _powf (2 , -> -> 10 `i `f -> _count `f `i ]
-"134
-[; ;main.c: 134:     }
-}
-[e :U 896 ]
-[e $U 897  ]
-[e :U 898 ]
-"135
-[; ;main.c: 135: }
-[e :UE 895 ]
-}
-"137
-[; ;main.c: 137: void Loom_settings(){
+"98
+[; ;main.c: 98: void Loom_settings(){
 [v _Loom_settings `(v ~T0 @X0 1 ef ]
 {
 [e :U _Loom_settings ]
 [f ]
-"138
-[; ;main.c: 138:     LcdClearDisplay();
+"99
+[; ;main.c: 99:     LcdClearDisplay();
 [e ( _LcdClearDisplay ..  ]
-"139
-[; ;main.c: 139:     int count = 3;
+"100
+[; ;main.c: 100:     int count = 3;
 [v _count `i ~T0 @X0 1 a ]
 [e = _count -> 3 `i ]
-"140
-[; ;main.c: 140:     LcdDisplayString(1, 0, "W:");
-[e ( _LcdDisplayString (3 , , -> -> 1 `i `uc -> -> 0 `i `uc :s 3C ]
-"141
-[; ;main.c: 141:     LcdDisplayNumber(1,2,loom_w);
+"101
+[; ;main.c: 101:     LcdDisplayString(1, 0, "W:");
+[e ( _LcdDisplayString (3 , , -> -> 1 `i `uc -> -> 0 `i `uc :s 4C ]
+"102
+[; ;main.c: 102:     LcdDisplayNumber(1,2,loom_w);
 [e ( _LcdDisplayNumber (3 , , -> -> 1 `i `uc -> -> 2 `i `uc -> _loom_w `us ]
-"142
-[; ;main.c: 142:     LcdDisplayString(1,8,"S:");
-[e ( _LcdDisplayString (3 , , -> -> 1 `i `uc -> -> 8 `i `uc :s 4C ]
-"143
-[; ;main.c: 143:     LcdDisplayNumber(1,10, loom_s);
+"103
+[; ;main.c: 103:     LcdDisplayString(1,8,"S:");
+[e ( _LcdDisplayString (3 , , -> -> 1 `i `uc -> -> 8 `i `uc :s 5C ]
+"104
+[; ;main.c: 104:     LcdDisplayNumber(1,10, loom_s);
 [e ( _LcdDisplayNumber (3 , , -> -> 1 `i `uc -> -> 10 `i `uc -> _loom_s `us ]
-"144
-[; ;main.c: 144:     LcdDisplayString(2,0,"P:");
-[e ( _LcdDisplayString (3 , , -> -> 2 `i `uc -> -> 0 `i `uc :s 5C ]
-"145
-[; ;main.c: 145:     LcdDisplayNumber(2,2,loom_p);
+"105
+[; ;main.c: 105:     LcdDisplayString(2,0,"P:");
+[e ( _LcdDisplayString (3 , , -> -> 2 `i `uc -> -> 0 `i `uc :s 6C ]
+"106
+[; ;main.c: 106:     LcdDisplayNumber(2,2,loom_p);
 [e ( _LcdDisplayNumber (3 , , -> -> 2 `i `uc -> -> 2 `i `uc -> _loom_p `us ]
-"146
-[; ;main.c: 146:     for(int i=count;i>=0;--i){
+"107
+[; ;main.c: 107:     pos = 2;
+[e = _pos -> 2 `i ]
+"108
+[; ;main.c: 108:     for(int i=count;i>=0;--i){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i _count ]
-[e $ >= _i -> 0 `i 906  ]
-[e $U 907  ]
-[e :U 906 ]
+[e $ >= _i -> 0 `i 886  ]
+[e $U 887  ]
+[e :U 886 ]
 {
-"147
-[; ;main.c: 147:         loom_w = increment(loom_w, i, 1,2);
-[e = _loom_w ( _increment (4 , , , _loom_w _i -> -> 1 `i `uc -> -> 2 `i `uc ]
-"148
-[; ;main.c: 148:     }
+"109
+[; ;main.c: 109:         loom_w = increment(loom_w, i, 1,pos);
+[e = _loom_w ( _increment (4 , , , _loom_w _i -> -> 1 `i `uc -> _pos `uc ]
+"110
+[; ;main.c: 110:         _delay((unsigned long)((20)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"111
+[; ;main.c: 111:         ++pos;
+[e =+ _pos -> 1 `i ]
+"112
+[; ;main.c: 112:     }
 }
 [e =- _i -> 1 `i ]
-[e $ >= _i -> 0 `i 906  ]
-[e :U 907 ]
+[e $ >= _i -> 0 `i 886  ]
+[e :U 887 ]
 }
-"149
-[; ;main.c: 149:     for(int i=count;i>=0;--i){
+"113
+[; ;main.c: 113:     pos = 10;
+[e = _pos -> 10 `i ]
+"114
+[; ;main.c: 114:     for(int i=count;i>=0;--i){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i _count ]
-[e $ >= _i -> 0 `i 909  ]
-[e $U 910  ]
-[e :U 909 ]
+[e $ >= _i -> 0 `i 889  ]
+[e $U 890  ]
+[e :U 889 ]
 {
-"150
-[; ;main.c: 150:         loom_s = increment(loom_s, i, 1,10);
-[e = _loom_s ( _increment (4 , , , _loom_s _i -> -> 1 `i `uc -> -> 10 `i `uc ]
-"151
-[; ;main.c: 151:     }
+"115
+[; ;main.c: 115:         loom_s = increment(loom_s, i, 1,pos);
+[e = _loom_s ( _increment (4 , , , _loom_s _i -> -> 1 `i `uc -> _pos `uc ]
+"116
+[; ;main.c: 116:         _delay((unsigned long)((20)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"117
+[; ;main.c: 117:         ++pos;
+[e =+ _pos -> 1 `i ]
+"118
+[; ;main.c: 118:     }
 }
 [e =- _i -> 1 `i ]
-[e $ >= _i -> 0 `i 909  ]
-[e :U 910 ]
+[e $ >= _i -> 0 `i 889  ]
+[e :U 890 ]
 }
-"152
-[; ;main.c: 152:     for(int i=count;i>=0;--i){
+"119
+[; ;main.c: 119:     pos = 2;
+[e = _pos -> 2 `i ]
+"120
+[; ;main.c: 120:     for(int i=count;i>=0;--i){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i _count ]
-[e $ >= _i -> 0 `i 912  ]
-[e $U 913  ]
-[e :U 912 ]
+[e $ >= _i -> 0 `i 892  ]
+[e $U 893  ]
+[e :U 892 ]
 {
-"153
-[; ;main.c: 153:         loom_p = increment(loom_p, i, 2,2);
-[e = _loom_p ( _increment (4 , , , _loom_p _i -> -> 2 `i `uc -> -> 2 `i `uc ]
-"154
-[; ;main.c: 154:     }
+"121
+[; ;main.c: 121:         loom_p = increment(loom_p, i, 2,pos);
+[e = _loom_p ( _increment (4 , , , _loom_p _i -> -> 2 `i `uc -> _pos `uc ]
+"122
+[; ;main.c: 122:         _delay((unsigned long)((20)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"123
+[; ;main.c: 123:         ++pos;
+[e =+ _pos -> 1 `i ]
+"124
+[; ;main.c: 124:     }
 }
 [e =- _i -> 1 `i ]
-[e $ >= _i -> 0 `i 912  ]
-[e :U 913 ]
+[e $ >= _i -> 0 `i 892  ]
+[e :U 893 ]
 }
-"155
-[; ;main.c: 155:     while(PORTCbits.RC0 == 0){
-[e $U 915  ]
-[e :U 916 ]
+"125
+[; ;main.c: 125:     while(PORTCbits.RC0 == 0){
+[e $U 895  ]
+[e :U 896 ]
 {
-"156
-[; ;main.c: 156:     }
+"126
+[; ;main.c: 126:     }
 }
-[e :U 915 ]
-"155
-[; ;main.c: 155:     while(PORTCbits.RC0 == 0){
-[e $ == -> . . _PORTCbits 0 0 `i -> 0 `i 916  ]
-[e :U 917 ]
-"157
-[; ;main.c: 157:     main_menu();
-[e ( _main_menu ..  ]
-"158
-[; ;main.c: 158: }
-[e :UE 905 ]
+[e :U 895 ]
+"125
+[; ;main.c: 125:     while(PORTCbits.RC0 == 0){
+[e $ == -> . . _PORTCbits 0 0 `i -> 0 `i 896  ]
+[e :U 897 ]
+"127
+[; ;main.c: 127:     LcdClearDisplay();
+[e ( _LcdClearDisplay ..  ]
+"128
+[; ;main.c: 128:     LcdDisplayNumber(1,0,loom_s);
+[e ( _LcdDisplayNumber (3 , , -> -> 1 `i `uc -> -> 0 `i `uc -> _loom_s `us ]
+"129
+[; ;main.c: 129:     LcdDisplayNumber(1,8,loom_w);
+[e ( _LcdDisplayNumber (3 , , -> -> 1 `i `uc -> -> 8 `i `uc -> _loom_w `us ]
+"130
+[; ;main.c: 130:     LcdDisplayNumber(2,0,loom_p);
+[e ( _LcdDisplayNumber (3 , , -> -> 2 `i `uc -> -> 0 `i `uc -> _loom_p `us ]
+"131
+[; ;main.c: 131: }
+[e :UE 885 ]
 }
-"164
-[; ;main.c: 164: void Dothi_settings(){
+"133
+[; ;main.c: 133: void Dothi_settings(){
 [v _Dothi_settings `(v ~T0 @X0 1 ef ]
 {
 [e :U _Dothi_settings ]
 [f ]
-"165
-[; ;main.c: 165:     LcdDisplayString(1,0,"NO OF STEPS:");
-[e ( _LcdDisplayString (3 , , -> -> 1 `i `uc -> -> 0 `i `uc :s 6C ]
-"166
-[; ;main.c: 166:     for(int k=1;k>=0;--k){
+"134
+[; ;main.c: 134:     LcdDisplayString(1,0,"NO OF STEPS:00");
+[e ( _LcdDisplayString (3 , , -> -> 1 `i `uc -> -> 0 `i `uc :s 7C ]
+"135
+[; ;main.c: 135:     pos = 12;
+[e = _pos -> 12 `i ]
+"136
+[; ;main.c: 136:     for(int k=1;k>=0;--k){
 {
 [v _k `i ~T0 @X0 1 a ]
 [e = _k -> 1 `i ]
-[e $ >= _k -> 0 `i 919  ]
-[e $U 920  ]
-[e :U 919 ]
+[e $ >= _k -> 0 `i 899  ]
+[e $U 900  ]
+[e :U 899 ]
 {
-"167
-[; ;main.c: 167:         dhoti_steps = increment_two(dhoti_steps, k, 1, 12);
-[e = _dhoti_steps ( _increment_two (4 , , , _dhoti_steps _k -> -> 1 `i `uc -> -> 12 `i `uc ]
-"168
-[; ;main.c: 168:         _delay((unsigned long)((10)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"169
-[; ;main.c: 169:     }
+"137
+[; ;main.c: 137:         dhoti_steps = increment(dhoti_steps, k, 1, pos);
+[e = _dhoti_steps ( _increment (4 , , , _dhoti_steps _k -> -> 1 `i `uc -> _pos `uc ]
+"138
+[; ;main.c: 138:         _delay((unsigned long)((20)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"139
+[; ;main.c: 139:         ++pos;
+[e =+ _pos -> 1 `i ]
+"140
+[; ;main.c: 140:     }
 }
 [e =- _k -> 1 `i ]
-[e $ >= _k -> 0 `i 919  ]
-[e :U 920 ]
+[e $ >= _k -> 0 `i 899  ]
+[e :U 900 ]
 }
-"170
-[; ;main.c: 170:     LcdClearDisplay();
+"141
+[; ;main.c: 141:     if(dhoti_steps<=60){
+[e $ ! <= _dhoti_steps -> 60 `i 902  ]
+{
+"142
+[; ;main.c: 142:         for(int i=1;i<=dhoti_steps;){
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 1 `i ]
+[e $U 906  ]
+[e :U 903 ]
+{
+"143
+[; ;main.c: 143:             LcdClearDisplay();
 [e ( _LcdClearDisplay ..  ]
-"171
-[; ;main.c: 171:     if(dhoti_steps<=60)
-[e $ ! <= _dhoti_steps -> 60 `i 922  ]
-"172
-[; ;main.c: 172:         enterdhoti_values(dhoti_steps);
-[e ( _enterdhoti_values (1 _dhoti_steps ]
-[e $U 923  ]
-"173
-[; ;main.c: 173:     else
-[e :U 922 ]
-"174
-[; ;main.c: 174:         LcdDisplayString(1,0,"INVALID OPTION");
-[e ( _LcdDisplayString (3 , , -> -> 1 `i `uc -> -> 0 `i `uc :s 7C ]
-[e :U 923 ]
-"175
-[; ;main.c: 175: }
-[e :UE 918 ]
+"144
+[; ;main.c: 144:             LcdDisplaytwo(1,0,i);
+[e ( _LcdDisplaytwo (3 , , -> -> 1 `i `uc -> -> 0 `i `uc -> _i `us ]
+"145
+[; ;main.c: 145:             LcdDisplayString(1,2,":");
+[e ( _LcdDisplayString (3 , , -> -> 1 `i `uc -> -> 2 `i `uc :s 8C ]
+"146
+[; ;main.c: 146:             LcdDisplayNumber(1,3,0);
+[e ( _LcdDisplayNumber (3 , , -> -> 1 `i `uc -> -> 3 `i `uc -> -> 0 `i `us ]
+"147
+[; ;main.c: 147:             LcdDisplayString(1,7,"F:0N:0P:0");
+[e ( _LcdDisplayString (3 , , -> -> 1 `i `uc -> -> 7 `i `uc :s 9C ]
+"148
+[; ;main.c: 148:             ++i;
+[e =+ _i -> 1 `i ]
+"149
+[; ;main.c: 149:             LcdDisplaytwo(2,0,i);
+[e ( _LcdDisplaytwo (3 , , -> -> 2 `i `uc -> -> 0 `i `uc -> _i `us ]
+"150
+[; ;main.c: 150:             LcdDisplayString(2,2,":");
+[e ( _LcdDisplayString (3 , , -> -> 2 `i `uc -> -> 2 `i `uc :s 10C ]
+"151
+[; ;main.c: 151:             LcdDisplayNumber(2,3,0);
+[e ( _LcdDisplayNumber (3 , , -> -> 2 `i `uc -> -> 3 `i `uc -> -> 0 `i `us ]
+"152
+[; ;main.c: 152:             LcdDisplayString(2,7,"F:0N:0P:0");
+[e ( _LcdDisplayString (3 , , -> -> 2 `i `uc -> -> 7 `i `uc :s 11C ]
+"153
+[; ;main.c: 153:             for(int k=3, pos = 3;k>=0;--k){
+{
+[v _k `i ~T0 @X0 1 a ]
+[e = _k -> 3 `i ]
+[v _pos `i ~T0 @X0 1 a ]
+[e = _pos -> 3 `i ]
+[e $ >= _k -> 0 `i 907  ]
+[e $U 908  ]
+[e :U 907 ]
+{
+"154
+[; ;main.c: 154:                 dhoti_values[i-1][0] = increment(dhoti_values[i-1][0],k,1,pos);
+[e = *U + &U *U + &U _dhoti_values * -> -> - _i -> 1 `i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _dhoti_values * -> -> - _i -> 1 `i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux `ui `ux ( _increment (4 , , , *U + &U *U + &U _dhoti_values * -> -> - _i -> 1 `i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _dhoti_values * -> -> - _i -> 1 `i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux `ui `ux _k -> -> 1 `i `uc -> _pos `uc ]
+"155
+[; ;main.c: 155:                 _delay((unsigned long)((20)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"156
+[; ;main.c: 156:                 ++pos;
+[e =+ _pos -> 1 `i ]
+"157
+[; ;main.c: 157:             }
 }
+[e =- _k -> 1 `i ]
+[e $ >= _k -> 0 `i 907  ]
+[e :U 908 ]
+}
+"158
+[; ;main.c: 158:             dhoti_values[i-1][1] = increment(dhoti_values[i][1],0,1,9);
+[e = *U + &U *U + &U _dhoti_values * -> -> - _i -> 1 `i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _dhoti_values * -> -> - _i -> 1 `i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux `ui `ux ( _increment (4 , , , *U + &U *U + &U _dhoti_values * -> -> _i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _dhoti_values * -> -> _i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux `ui `ux -> 0 `i -> -> 1 `i `uc -> -> 9 `i `uc ]
+"159
+[; ;main.c: 159:             _delay((unsigned long)((20)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"160
+[; ;main.c: 160:             dhoti_values[i-1][2] = increment(dhoti_values[i][2],0,1,12);
+[e = *U + &U *U + &U _dhoti_values * -> -> - _i -> 1 `i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _dhoti_values * -> -> - _i -> 1 `i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux `ui `ux ( _increment (4 , , , *U + &U *U + &U _dhoti_values * -> -> _i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _dhoti_values * -> -> _i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux `ui `ux -> 0 `i -> -> 1 `i `uc -> -> 12 `i `uc ]
+"161
+[; ;main.c: 161:             _delay((unsigned long)((20)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"162
+[; ;main.c: 162:             dhoti_values[i-1][3] = increment(dhoti_values[i][3],0,1,15);
+[e = *U + &U *U + &U _dhoti_values * -> -> - _i -> 1 `i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _dhoti_values * -> -> - _i -> 1 `i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux `ui `ux ( _increment (4 , , , *U + &U *U + &U _dhoti_values * -> -> _i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _dhoti_values * -> -> _i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux `ui `ux -> 0 `i -> -> 1 `i `uc -> -> 15 `i `uc ]
+"163
+[; ;main.c: 163:             _delay((unsigned long)((20)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"164
+[; ;main.c: 164:             for(int k = 3,pos = 3; k >= 0;--k){
+{
+[v _k `i ~T0 @X0 1 a ]
+[e = _k -> 3 `i ]
+[v _pos `i ~T0 @X0 1 a ]
+[e = _pos -> 3 `i ]
+[e $ >= _k -> 0 `i 910  ]
+[e $U 911  ]
+[e :U 910 ]
+{
+"165
+[; ;main.c: 165:                 dhoti_values[i-1][0] = increment(dhoti_values[i][0],k,2,pos);
+[e = *U + &U *U + &U _dhoti_values * -> -> - _i -> 1 `i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _dhoti_values * -> -> - _i -> 1 `i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux `ui `ux ( _increment (4 , , , *U + &U *U + &U _dhoti_values * -> -> _i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _dhoti_values * -> -> _i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux `ui `ux _k -> -> 2 `i `uc -> _pos `uc ]
+"166
+[; ;main.c: 166:                 _delay((unsigned long)((20)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"167
+[; ;main.c: 167:                 ++pos;
+[e =+ _pos -> 1 `i ]
+"168
+[; ;main.c: 168:             }
+}
+[e =- _k -> 1 `i ]
+[e $ >= _k -> 0 `i 910  ]
+[e :U 911 ]
+}
+"169
+[; ;main.c: 169:             dhoti_values[i][1] = increment(dhoti_values[i][1],0,2,9);
+[e = *U + &U *U + &U _dhoti_values * -> -> _i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _dhoti_values * -> -> _i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux `ui `ux ( _increment (4 , , , *U + &U *U + &U _dhoti_values * -> -> _i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _dhoti_values * -> -> _i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux `ui `ux -> 0 `i -> -> 2 `i `uc -> -> 9 `i `uc ]
+"170
+[; ;main.c: 170:             _delay((unsigned long)((20)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"171
+[; ;main.c: 171:             dhoti_values[i][2] = increment(dhoti_values[i][2],0,2,12);
+[e = *U + &U *U + &U _dhoti_values * -> -> _i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _dhoti_values * -> -> _i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux `ui `ux ( _increment (4 , , , *U + &U *U + &U _dhoti_values * -> -> _i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _dhoti_values * -> -> _i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux `ui `ux -> 0 `i -> -> 2 `i `uc -> -> 12 `i `uc ]
+"172
+[; ;main.c: 172:             _delay((unsigned long)((20)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"173
+[; ;main.c: 173:             dhoti_values[i][3] = increment(dhoti_values[i][3],0,2,15);
+[e = *U + &U *U + &U _dhoti_values * -> -> _i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _dhoti_values * -> -> _i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux `ui `ux ( _increment (4 , , , *U + &U *U + &U _dhoti_values * -> -> _i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _dhoti_values * -> -> _i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux `ui `ux -> 0 `i -> -> 2 `i `uc -> -> 15 `i `uc ]
+"174
+[; ;main.c: 174:             _delay((unsigned long)((20)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"175
+[; ;main.c: 175:     }
+}
+[e :U 906 ]
+[e $ <= _i _dhoti_steps 903  ]
+[e :U 904 ]
+}
+"176
+[; ;main.c: 176:     }
+}
+[e $U 913  ]
+"177
+[; ;main.c: 177:     else
+[e :U 902 ]
 "178
-[; ;main.c: 178: void Reset_settings(){
+[; ;main.c: 178:         LcdClearDisplay();
+[e ( _LcdClearDisplay ..  ]
+[e :U 913 ]
+"179
+[; ;main.c: 179:         LcdDisplayString(1,0,"INVALID OPTION");
+[e ( _LcdDisplayString (3 , , -> -> 1 `i `uc -> -> 0 `i `uc :s 12C ]
+"180
+[; ;main.c: 180: }
+[e :UE 898 ]
+}
+"183
+[; ;main.c: 183: void Reset_settings(){
 [v _Reset_settings `(v ~T0 @X0 1 ef ]
 {
 [e :U _Reset_settings ]
 [f ]
-"183
-[; ;main.c: 183: }
-[e :UE 924 ]
-}
+"184
+[; ;main.c: 184:     LcdClearDisplay();
+[e ( _LcdClearDisplay ..  ]
 "185
-[; ;main.c: 185: void enterdhoti_values(int steps){
-[v _enterdhoti_values `(v ~T0 @X0 1 ef1`i ]
+[; ;main.c: 185:     while(1){
+[e :U 916 ]
 {
-[e :U _enterdhoti_values ]
-[v _steps `i ~T0 @X0 1 r1 ]
-[f ]
 "186
-[; ;main.c: 186:     for(int i=1;i<=steps;){
-{
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 1 `i ]
-[e $U 929  ]
-[e :U 926 ]
-{
+[; ;main.c: 186:     }
+}
+[e :U 915 ]
+[e $U 916  ]
+[e :U 917 ]
 "187
-[; ;main.c: 187:         LcdDisplaytwo(1,0,i);
-[e ( _LcdDisplaytwo (3 , , -> -> 1 `i `uc -> -> 0 `i `uc -> _i `us ]
-"188
-[; ;main.c: 188:         LcdDisplayString(1,2,":");
-[e ( _LcdDisplayString (3 , , -> -> 1 `i `uc -> -> 2 `i `uc :s 8C ]
-"189
-[; ;main.c: 189:         LcdDisplayNumber(1,3,0);
-[e ( _LcdDisplayNumber (3 , , -> -> 1 `i `uc -> -> 3 `i `uc -> -> 0 `i `us ]
-"190
-[; ;main.c: 190:         LcdDisplayString(1,7,"F:0N:0P:0");
-[e ( _LcdDisplayString (3 , , -> -> 1 `i `uc -> -> 7 `i `uc :s 9C ]
-"191
-[; ;main.c: 191:         ++i;
-[e =+ _i -> 1 `i ]
-"192
-[; ;main.c: 192:         LcdDisplaytwo(2,0,i);
-[e ( _LcdDisplaytwo (3 , , -> -> 2 `i `uc -> -> 0 `i `uc -> _i `us ]
-"193
-[; ;main.c: 193:         LcdDisplayString(2,2,":");
-[e ( _LcdDisplayString (3 , , -> -> 2 `i `uc -> -> 2 `i `uc :s 10C ]
-"194
-[; ;main.c: 194:         LcdDisplayNumber(2,3,0);
-[e ( _LcdDisplayNumber (3 , , -> -> 2 `i `uc -> -> 3 `i `uc -> -> 0 `i `us ]
-"195
-[; ;main.c: 195:         LcdDisplayString(2,7,"F:0N:0P:0");
-[e ( _LcdDisplayString (3 , , -> -> 2 `i `uc -> -> 7 `i `uc :s 11C ]
-"196
-[; ;main.c: 196:         for(int k=3;k>=0;--k)
-{
-[v _k `i ~T0 @X0 1 a ]
-[e = _k -> 3 `i ]
-[e $ >= _k -> 0 `i 930  ]
-[e $U 931  ]
-[e :U 930 ]
-"197
-[; ;main.c: 197:             dhoti_values[i][0] = increment(dhoti_values[i][0],k,1,3);
-[e = *U + &U *U + &U _dhoti_values * -> -> _i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _dhoti_values * -> -> _i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux `ui `ux ( _increment (4 , , , *U + &U *U + &U _dhoti_values * -> -> _i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _dhoti_values * -> -> _i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux `ui `ux _k -> -> 1 `i `uc -> -> 3 `i `uc ]
-[e =- _k -> 1 `i ]
-[e $ >= _k -> 0 `i 930  ]
-[e :U 931 ]
+[; ;main.c: 187: }
+[e :UE 914 ]
 }
-"198
-[; ;main.c: 198:         LcdDisplayString(1,7,"F:0N:0P:0");
-[e ( _LcdDisplayString (3 , , -> -> 1 `i `uc -> -> 7 `i `uc :s 12C ]
-"199
-[; ;main.c: 199:         for(int k=3;k>=0;--k)
-{
-[v _k `i ~T0 @X0 1 a ]
-[e = _k -> 3 `i ]
-[e $ >= _k -> 0 `i 933  ]
-[e $U 934  ]
-[e :U 933 ]
-"200
-[; ;main.c: 200:             dhoti_values[i][0] = increment(dhoti_values[i][0],k,2,3);
-[e = *U + &U *U + &U _dhoti_values * -> -> _i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _dhoti_values * -> -> _i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux `ui `ux ( _increment (4 , , , *U + &U *U + &U _dhoti_values * -> -> _i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _dhoti_values * -> -> _i `ui `ux -> * -> # *U &U *U &U _dhoti_values `ui -> -> 4 `i `ui `ux `ui `ux _k -> -> 2 `i `uc -> -> 3 `i `uc ]
-[e =- _k -> 1 `i ]
-[e $ >= _k -> 0 `i 933  ]
-[e :U 934 ]
-}
-"201
-[; ;main.c: 201:     }
-}
-[e :U 929 ]
-[e $ <= _i _steps 926  ]
-[e :U 927 ]
-}
-"202
-[; ;main.c: 202: }
-[e :UE 925 ]
-}
+[a 3C 77 69 78 85 0 ]
 [a 1C 73 78 86 65 76 73 68 32 79 80 84 73 79 78 0 ]
 [a 2C 73 78 86 65 76 73 68 32 79 80 84 73 79 78 0 ]
-[a 7C 73 78 86 65 76 73 68 32 79 80 84 73 79 78 0 ]
-[a 3C 87 58 0 ]
-[a 6C 78 79 32 79 70 32 83 84 69 80 83 58 0 ]
-[a 4C 83 58 0 ]
-[a 5C 80 58 0 ]
+[a 12C 73 78 86 65 76 73 68 32 79 80 84 73 79 78 0 ]
+[a 4C 87 58 0 ]
+[a 5C 83 58 0 ]
+[a 6C 80 58 0 ]
 [a 8C 58 0 ]
 [a 10C 58 0 ]
 [a 9C 70 58 48 78 58 48 80 58 48 0 ]
 [a 11C 70 58 48 78 58 48 80 58 48 0 ]
-[a 12C 70 58 48 78 58 48 80 58 48 0 ]
+[a 7C 78 79 32 79 70 32 83 84 69 80 83 58 48 48 0 ]
