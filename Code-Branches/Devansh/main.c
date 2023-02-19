@@ -207,10 +207,9 @@ void enterdhoti_values(int steps){
         LcdDisplayString(1,7,"F:0N:0P:0");
         for(int k=3;k>=0;--k)
             dhoti_values[i][0] = increment(dhoti_values[i][0],k,2,3);
-        
         while(BACK==0){
         if(BACK==1){
-            WriteEEPROM(0x20,dhoti_values[i][0]);
+            WriteEEPROM(0x20,dhoti_values[i][0]); // writing value to EEProm
         }
     }
     }
