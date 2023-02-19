@@ -1,0 +1,5 @@
+Once the IDE is installed.we can directly install the XC8 Complier when the new file is been created.
+
+Link is given below
+
+https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide
